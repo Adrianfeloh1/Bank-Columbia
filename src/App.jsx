@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -20,13 +21,15 @@ const App = () => {
             domicilio es gratis.
           </p>
           <div className="flex justify-center">
-            <a className="px-24 py-5 border-solid rounded-full bg-[#FDDA25] font-bold text-2xl" href="#">Abrir cuenta</a>
+            <a className="px-24 py-4 border-solid rounded-full bg-[#FDDA25] font-bold text-2xl" href="#">Abrir cuenta</a>
           </div>
         </div>
         <div className="w-1/2">
           <img src="./cuenta.jpg" alt="img persona" />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
