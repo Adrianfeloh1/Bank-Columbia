@@ -2,11 +2,11 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-around mx-7 py-4">
+    <div className="flex items-center justify-around py-4 w-full">
       <figure className="flex items-center">
         <img className="w-20 rounded-full " src="../logo.jpg" alt="logo" />
         <a className="text-3xl font-bold font-sans text-[#254080]" href="#">
-          Bankolumbia
+          Bank Columbia
         </a>
       </figure>
       <nav>

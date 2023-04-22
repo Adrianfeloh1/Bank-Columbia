@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex items-center justify-center mx-7 py-4 bg-[#1D1D1B]">
-      <div className="text-white">
+    <div className="w-full flex items-center justify-center py-4 bg-[#1D1D1B]">
+      <div className="text-white ">
         <img className="rounded-full h-32" src="../public/target.webp" alt="" />
       </div>
       <div className="text-white px-5 text-lg">
@@ -11,7 +11,6 @@ const Footer = () => {
         días, <span className="font-bold">¿sabes cómo?</span>
       </div>
       <div className="px-11 py-4 border-solid rounded-full bg-[#FDDA25] font-bold text-xl">
-        {" "}
         <a href="">Descúbrela</a>
       </div>
     </div>
