@@ -1,8 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-
-    
   return (
     <div className="m-auto my-10 container flex items-center justify-center w-full mt-32 mb-24">
       <div className="w-1/2">
@@ -18,12 +17,12 @@ const Home = () => {
           domicilio es gratis.
         </p>
         <div className="flex justify-center">
-          <a
+          <Link
+            to="/account"
             className="px-24 py-4 border-solid rounded-full bg-[#FDDA25] font-bold text-2xl"
-            href="#"
           >
-            Abrir cuenta
-          </a>
+            <button>Abrir cuenta</button>
+          </Link>
         </div>
       </div>
       <div className="w-1/2">

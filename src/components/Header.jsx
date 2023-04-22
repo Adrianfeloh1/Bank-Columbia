@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="flex items-center justify-around py-4 w-full">
       <figure className="flex items-center">
         <img className="w-20 rounded-full " src="../logo.jpg" alt="logo" />
-        <a className="text-3xl font-bold font-sans text-[#254080]" href="#">
-          Bank Columbia
-        </a>
+        <h2 className="text-3xl font-bold font-sans text-[#254080]" href="#">
+          <Link to={"/"}>Bank Columbia</Link> 
+        </h2>
       </figure>
       <nav>
         <ul className="flex items-center">
