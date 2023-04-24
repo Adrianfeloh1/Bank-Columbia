@@ -6,7 +6,7 @@ const Header = () => {
     <div className="flex items-center justify-around py-4 w-full">
       <figure className="flex items-center">
         <img className="w-20 rounded-full " src="../logo.jpg" alt="logo" />
-        <h2 className="text-3xl font-bold font-sans text-[#254080]" href="#">
+        <h2 className="text-3xl font-bold font-sans text-[#254080]">
           <Link to={"/"}>Bank Columbia</Link> 
         </h2>
       </figure>
