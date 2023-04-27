@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import shortid from "shortid";
 import Registro from "./Registro";
 
-const Account = ({ crearRegistro, registro }) => {
+const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
   //3.2 se llama el prop con destructuring
   //1. Creamos el state del formulario para crear la cuenta
   const [formulario, actualizarFormulario] = useState({
@@ -75,51 +75,52 @@ const Account = ({ crearRegistro, registro }) => {
         </h2>
       ) : null}
 
-      <div className="container w-1/2 m-auto my-5 flex items-center justify-center mb-24 shadow-xl p-8 shadow-[#F7F7F7]-500/50">
+      <div className="container w-1/2 m-auto my-5 flex justify-center mb-12 rounded-2xl shadow-xl shadow-[#F7F7F7]-500/50">
         <div className="flex flex-col">
           <form
+            className="w-[32rem]"
             onSubmit={enviandoFormulario} //2.
           >
-            <div className="flex items-center">
-              <img src="../public/nombre.png" alt="nombre" />
-              <label className="pl-1">Nombres y Apellidos</label>
+            <div className="flex items-center w-full">
+              <img className="w-8" src="../public/nombre.png" alt="nombre" />
+              <label className="ml-1">Nombres y Apellidos</label>
             </div>
 
             <input
-              className="py-1 mb-5 w-full border-b-2 border-[#3b3b3d6b] outline-none"
+              className="pt-1 mb-4 w-full border-b-2 border-[#3b3b3d6b] outline-none"
               type="text"
               name="nombre"
               onChange={actualizarCampo} //1.2
               value={nombre} //1.4 Para mas adelante resetear
             />
-            <div className="flex items-center">
-              <img src="../public/cedula.png" alt="nombre" />
-              <label className="pl-1">Número de Cédula</label>
-            </div>            
+            <div className="flex items-center w-full">
+              <img className="w-8" src="../public/cedula.png" alt="cedula" />
+              <label className="ml-1">Número de Cédula</label>
+            </div>
             <input
-              className="py-1 mb-5 w-full border-b-2 border-[#3b3b3d6b] outline-none"
+              className="pt-1 mb-4 w-full border-b-2 border-[#3b3b3d6b] outline-none"
               type="number"
               name="cedula"
               onChange={actualizarCampo} //1.2
               value={cedula} //1.4 Para mas adelante resetear
             />
-            <div className="flex items-center">
-              <img src="../public/email.png" alt="nombre" />
-              <label className="pl-1">E-mail</label>
-            </div>  
+            <div className="flex items-center w-full">
+              <img className="w-8" src="../public/email.png" alt="email" />
+              <label className="ml-1">E-mail</label>
+            </div>
             <input
-              className="py-1 mb-5 w-full border-b-2 border-[#3b3b3d6b] outline-none"
+              className="pt-1 mb-4 w-full border-b-2 border-[#3b3b3d6b] outline-none"
               type="e-mail"
               name="email"
               onChange={actualizarCampo} //1.2
               value={email} //1.4 Para mas adelante resetear
             />
-             <div className="flex items-center">
-              <img src="../public/celular.png" alt="nombre" />
-              <label className="pl-1">Celular</label>
-            </div> 
+            <div className="flex items-center w-full">
+              <img className="w-8" src="../public/celular.png" alt="celular" />
+              <label className="ml-1">Celular</label>
+            </div>
             <input
-              className="py-1 mb-5 w-full border-b-2 border-[#3b3b3d6b] outline-none"
+              className="pt-1 mb-4 w-full border-b-2 border-[#3b3b3d6b] outline-none"
               type="number"
               name="celular"
               onChange={actualizarCampo} //1.2
@@ -128,7 +129,11 @@ const Account = ({ crearRegistro, registro }) => {
             {/* 3.2.2 se pasa el componente iterando lo escrito en el formulario */}
             <div className="text-2xl font-bold font-sans text-[#074b94f1]">
               {registro.map((formulario) => (
-                <Registro key={formulario.id} formulario={formulario} /> // COMPONENTE
+                <Registro
+                  key={formulario.id}
+                  formulario={formulario}
+                  eliminarRegistro={eliminarRegistro}
+                /> // COMPONENTE
               ))}
             </div>
             <div className="flex justify-center">
