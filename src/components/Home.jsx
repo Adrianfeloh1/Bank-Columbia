@@ -13,7 +13,7 @@ const Home = () => {
         </p>
         <p className="text-2xl my-5">
           La Tarjeta Débito
-          <span className="font-bold">llega al lugar que elijas</span>, el
+          <span className="font-bold"> llega al lugar que elijas</span>, el
           domicilio es gratis.
         </p>
         <div className="flex justify-center">

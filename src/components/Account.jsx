@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import shortid from "shortid";
 import Registro from "./Registro";
+import SavingsAccount from "./SavingsAccount";
 
 const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
   //3.2 se llama el prop con destructuring
@@ -70,12 +71,12 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
       </h2>
       {/* //2.2.3 lo llevamos a la pantalla */}
       {error ? (
-        <h2 className="text-2xl text-center font-bold font-sans text-[#E53140]">
+        <h2 className="text-2xl text-center -mt-[3.3rem] font-bold font-sans text-[#E53140]">
           Debes diligenciar todos los campos
         </h2>
       ) : null}
 
-      <div className="container w-1/2 m-auto my-5 flex justify-center mb-12 rounded-2xl shadow-xl shadow-[#F7F7F7]-500/50">
+      <div className="container w-1/2 m-auto my-5 flex justify-center mb-12 rounded-2xl shadow-2xl shadow-[#F7F7F7]-500/50">
         <div className="flex flex-col">
           <form
             className="w-[32rem]"
@@ -143,10 +144,11 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
               >
                 Siguiente
               </button>
-            </div>
-          </form>
-        </div>
+            </div>            
+          </form>          
+        </div>        
       </div>
+      <SavingsAccount/>
     </>
   );
 };
