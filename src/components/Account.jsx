@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import shortid from "shortid";
-import Registro from "./Registro";
-import SavingsAccount from "./SavingsAccount";
+import { useNavigate } from "react-router-dom";
 
-const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
+const Account = ({ crearRegistro }) => {
   //3.2 se llama el prop con destructuring
   //1. Creamos el state del formulario para crear la cuenta
   const [formulario, actualizarFormulario] = useState({
@@ -29,11 +28,15 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
   //1.4 Extraemos los valores para optimizar el código
   const { nombre, cedula, email, celular } = formulario;
 
+  //5. importamos useNavigate y lo llamamos con una variable para usarlo en la función que se envía por el submit
+  const navigate = useNavigate();
+
   // 2. Cuando el usuario presiona siguiente (envia el formulario)
   const enviandoFormulario = (e) => {
     // verificamos que funciones con un alert("")
     //2.1 debemos prevenir que se envie el form al metodo get con prevent default
     e.preventDefault();
+
     //2.2 lo primero es validar
     if (
       nombre.trim() === "" ||
@@ -43,7 +46,12 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
     ) {
       actualizarError(true); //2.2.2 verificamos en components-Account que pase a true si lo enviamos vacío
       return;
+    } else if (!formulario) {
+      actualizarFormulario(true);
+    } else {
+      navigate("/savingsAccount");
     }
+
     //2.2.4 Eliminamos el mensaje cuando se diligencia el form
     actualizarError(false);
 
@@ -74,9 +82,13 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
         <h2 className="text-2xl text-center -mt-[3.3rem] font-bold font-sans text-[#E53140]">
           Debes diligenciar todos los campos
         </h2>
-      ) : null}
+      ) : (
+        <h2 className="text-2xl text-center -mt-[3.3rem] font-bold font-sans text-[#074b94f1]">
+          Verifica tu información antes de continuar
+        </h2>
+      )}
 
-      <div className="container w-1/2 m-auto my-5 flex justify-center mb-12 rounded-2xl shadow-2xl shadow-[#F7F7F7]-500/50">
+      <div className="container w-1/2 m-auto py-8 my-5 flex justify-center mb-12 rounded-2xl shadow-2xl shadow-[#F7F7F7]-500/50">
         <div className="flex flex-col">
           <form
             className="w-[32rem]"
@@ -111,7 +123,7 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
             </div>
             <input
               className="pt-1 mb-4 w-full border-b-2 border-[#3b3b3d6b] outline-none"
-              type="e-mail"
+              type="email"
               name="email"
               onChange={actualizarCampo} //1.2
               value={email} //1.4 Para mas adelante resetear
@@ -127,28 +139,18 @@ const Account = ({ crearRegistro, registro, eliminarRegistro }) => {
               onChange={actualizarCampo} //1.2
               value={celular} //1.4 Para mas adelante resetear
             />
-            {/* 3.2.2 se pasa el componente iterando lo escrito en el formulario */}
-            <div className="text-2xl font-bold font-sans text-[#074b94f1]">
-              {registro.map((formulario) => (
-                <Registro
-                  key={formulario.id}
-                  formulario={formulario}
-                  eliminarRegistro={eliminarRegistro}
-                /> // COMPONENTE
-              ))}
-            </div>
+
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="px-24 my-5 py-3 rounded-full bg-[#FDDA25] font-bold text-2xl "
+                className="px-24 my-5 py-3 rounded-full bg-[#FDDA25] font-bold text-2xl"
               >
-                Siguiente
+                Continuar
               </button>
-            </div>            
-          </form>          
-        </div>        
+            </div>
+          </form>
+        </div>
       </div>
-      <SavingsAccount/>
     </>
   );
 };

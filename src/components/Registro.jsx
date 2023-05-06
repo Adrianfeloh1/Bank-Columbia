@@ -1,6 +1,6 @@
 import React from "react";
 /* 3. creamos el componente registro */
-const Registro = ({ formulario, eliminarRegistro }) => {
+const Registro = ({ formulario }) => {
   return (
     <div className="shadow-xl rounded-2xl p-8 shadow-[#F7F7F7]-500/50">
       <h2 className="-mt-[2rem] text-center mb-5 text-[#2C2A29]">
@@ -24,7 +24,7 @@ const Registro = ({ formulario, eliminarRegistro }) => {
       </div>
       <div className="text-center">
         <button
-          className="rounded-lg mt-4 w-3/2 p-2 bg-[#E53140] text-2xl text-center font-sans text-white"
+          className="rounded-lg mt-4 w-3/2 p-1 bg-[#af2f39fd] text-xl text-center font-sans text-white"
           onClick={() => eliminarRegistro(formulario.id)}
         >
           {/* 4. com arrow para que espere a que suceda el onclick */}
